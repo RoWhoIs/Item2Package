@@ -23,3 +23,18 @@ To install Item2Package, follow these steps:
 
 > [!IMPORTANT]  
 > The `-o` flag does not currently work and will continue to output files to the working directory
+
+## FaQ
+
+> This was flagged by my antivirus, is this software trustworthy?
+
+This is because none of the packages are signed (that costs money for Windows and MacOS)
+If you'd like, you can compile the source code yourself. We used `go build -ldflags "-s -w" -o item2package main.go` as our compilation command.
+
+> This keeps getting a 429 error!
+
+Wait for about one minute. This is caused due to none of the requests made by Item2Package being authenticated, so Roblox enforces stricter network policies.
+
+> How do I contribute?
+
+Fork this repository, create a new branch, and open a pull request. Thanks in advanced!
