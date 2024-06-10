@@ -174,7 +174,7 @@ func main() {
 	if *verboseMode {
 		slog.Log(context.TODO(), 0, "reevaluating item name for file use...")
 	}
-	itemType, _ := ItemMap[details.AssetTypeId]
+	itemType := ItemMap[details.AssetTypeId]
 	itemName := strings.Replace(details.Name, " ", "_", -1)
 	reg, err := regexp.Compile("[^a-zA-Z0-9_]+")
 	if err != nil {
@@ -228,7 +228,7 @@ func main() {
 		}
 		if len(thumbnailResponse.Data) > 0 {
 			thumbnail := thumbnailResponse.Data[0]
-			fetchedThumbnail, err = client("GET", thumbnail.ImageURL, nil)
+			fetchedThumbnail, _ = client("GET", thumbnail.ImageURL, nil)
 		} else {
 			slog.Log(context.TODO(), 6, "no thumbnail found")
 		}
